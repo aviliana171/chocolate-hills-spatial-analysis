@@ -4,10 +4,7 @@ library(dplyr)
 library(ggstatsplot)
 library(ggplot2) 
 
-# ==============================================================================
-# OPTION A: ELEVATION DISTRIBUTION ANALYSIS USING RASTER DATA (TIFF)
-# Highly accurate for demonstrating the "Bimodal" pattern of the karst landscape
-# ==============================================================================
+# ELEVATION DISTRIBUTION ANALYSIS USING RASTER DATA (TIFF)
 
 # Read the TIFF file
 dem_bohol <- rast("D:/Wordpress/Bohol/Chocolate_Hills_Area.tif")
@@ -43,9 +40,7 @@ plot_raster <- gghistostats(
 # Display the plot
 print(plot_raster)
 
-# ==============================================================================
-# OPTION B: ANALYSIS USING CONTOUR DATA (SHAPEFILE)
-# ==============================================================================
+# ANALYSIS USING CONTOUR DATA (SHAPEFILE)
 
 # Read contour data directly from the .shp file
 contour_bohol <- st_read("D:/Wordpress/Bohol/Chocolate_Hills_Contours.shp")
@@ -72,9 +67,7 @@ plot_contour <- gghistostats(
 # Display the plot
 print(plot_contour)
 
-# ==============================================================================
 # SLOPE ANALYSIS & DESCRIPTIVE STATISTICS
-# ==============================================================================
 
 # Calculate slope angle (in degrees) from DEM data
 slope_bohol <- terrain(dem_bohol, v = "slope", unit = "degrees")
